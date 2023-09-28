@@ -2,8 +2,6 @@ import { useState } from 'react'
 import Stunda from "./Stunda"
 
 function Diena(props) {
-    const stundas = ["pirmāstundas", "Otradineas","Trešdienas","Ceturdiena"];
-
     return (
         <div>
             <h2>{props.name}</h2>
