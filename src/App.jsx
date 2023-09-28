@@ -1,31 +1,26 @@
 import { useState } from 'react'
 import Diena from './Diena.jsx'
 import Kurss from './Kurss.jsx'
-import Stundas from './stunda.json'
 
-const API = 'http://skrazzo.sites.hex.lv/projects/class-list/db.json';
-var Data = Stundas;
+const API = 'http://skrazzo.sites.hex.lv/projects/class-list/api.php';
 
 function App() {
-const Dienas = ["Pirmdiena","Otradiena","Trešdiena","Ceturdiena","Piekdien"]; 
-
-  // fetch(API)
-  // .then(response => response.json())
-  // .then(data => console.log(data))
-  // .catch(error => console.error(error));
-  console.log(Data);
-
+  const [data , setData] = useState("none");
+  {if (data == "none"){
+    fetch(API)
+    .then(response => response.json())
+    .then(data => setData(data))
+    .catch(error => console.error("fetch error: " + error))};
+  }
   return (
     <>
+      {console.log(data)}
       <div>
-        {Object.keys(Data).map((value, key) => {
-          console.log(key + ":" + value);
-          <Kurss key={key} kurss={value[key]}/>
-        })}
+        <p>Last updated:{data["last-updated"]}</p>
 
-        {/* {Dienas.map((diena , i) => (
-          <Diena key={i} name={diena} />
-        ))} */}
+        {Object.entries(data).map((key, value) => {
+          return <Kurss key={key} kurss={value}/>;
+        })}
       </div>
     </>
   )
