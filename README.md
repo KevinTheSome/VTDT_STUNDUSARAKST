@@ -1,4 +1,6 @@
-#Basic React + Vite
+#Better site
 
-This is a basic React + Vite to share my work
+This is my code for the school I go better class website
 
+Used stuff
+React + Vite
