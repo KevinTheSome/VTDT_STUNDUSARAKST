@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import Day from "./Day"
 
-function Classes(props) {
+function Classes({ value }) {
 
-    const jsxMapKursi = Object.values(props.value).map((value , key) => {
-        return <Day teachers={props.value["teachers"]} lessens={props.value["classes"]} key={props.value} />
-    })
+    const jsxMapKursi = Object.values(value).map((key, index) => {
+        return <Day stundas={key} key={index} />;
+    });
 
     return (
         <div>
-            <h2>idk</h2>
+            <h2>Diena</h2>
             {jsxMapKursi}
         </div>
     )

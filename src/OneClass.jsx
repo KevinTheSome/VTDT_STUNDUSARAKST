@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
-function OneClass(props) {
+function OneClass({ stundas }) {
+
     return (
-        <div>
-            <p>{props.lessen} / {props.teacher}</p>
-        </div>
-    )
-}
+      <>
+        <p>{stundas}</p>
+      </>
+    );
+  }
 
 export default OneClass
